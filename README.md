@@ -131,3 +131,50 @@ I also created a personal user account, gave it administrator privileges, and ad
 Select ZSH, if you want to have a different Shell other than Bash.
 <img width="663" height="377" alt="Screenshot 2025-11-03 at 2 42 44 PM" src="https://github.com/user-attachments/assets/c5781d60-ca02-4451-89cc-7e0b3488ce5c" />
 
+7. Locale and Language Setup
+
+Before installing the bootloader, I configured the system language settings.
+I opened /etc/locale.conf and added:
+<br> 
+LANG=en_US.UTF-8
+LC_COLLATE=C
+<br>
+<img width="222" height="106" alt="Screenshot 2025-11-03 at 2 46 51 PM" src="https://github.com/user-attachments/assets/a4e7a6d8-a97d-4ef9-9a5a-6308ebbb199c" />
+
+<br>
+Then, in /etc/locale.gen, I uncommented this line:
+<br>
+en_US.UTF-8 UTF-8
+<br>
+<img width="258" height="958" alt="Screenshot 2025-11-03 at 2 48 03 PM" src="https://github.com/user-attachments/assets/f1eb076c-28fb-4f8c-bf02-22da084e6d51" />
+
+
+This enabled U.S. English with UTF-8 encoding for the system, ensuring proper text display and compatibility.
+
+8. Bootloader Installation
+
+After completing the system configuration, I proceeded to install the bootloader, which is responsible for initializing the operating system at startup.
+From the Archboot setup menu, I selected “Install Bootloader.”
+
+When prompted, I chose GRUB UEFI as the bootloader option. GRUB was selected because it is one of the most reliable and widely supported bootloaders available for Linux, and it works seamlessly with systems using UEFI (like my VirtualBox configuration).
+
+During installation, I reviewed the configuration file but left all default settings unchanged to maintain compatibility with the system’s existing partition setup. This ensured that GRUB could correctly detect the EFI System Partition and load the Linux kernel without any errors.
+
+Once the installation was complete, I exited the setup and selected “Reboot System.”
+After the virtual machine restarted, the GRUB menu appeared briefly, confirming that the installation had succeeded.
+The system then booted into the Arch Linux command-line interface (CLI), where I was able to log in using the credentials I had created earlier.
+
+<img width="315" height="152" alt="508830531-2dc8bb4c-9bf0-4702-a00d-e7f58119e6ed" src="https://github.com/user-attachments/assets/08df1e24-89b4-42b1-b04e-8697fedf8080" />
+<br> 
+Select GRUB 
+<br>
+<img width="466" height="199" alt="Screenshot 2025-11-03 at 2 55 01 PM" src="https://github.com/user-attachments/assets/1d92b795-de0c-4bf3-9e91-b4a48e299832" />
+<br> 
+Reboot System to restart your Installation
+<img width="506" height="255" alt="Screenshot 2025-11-03 at 2 56 56 PM" src="https://github.com/user-attachments/assets/1ea2a897-d498-444c-8f25-6dbccfb4b36e" />
+<br> 
+walaaaaaaaa........................................! 
+You have successfully installed Arch Linux! (if you still didn't forget your username and password)
+<img width="945" height="250" alt="Screenshot 2025-11-03 at 2 59 02 PM" src="https://github.com/user-attachments/assets/084a3f1e-48f3-466f-a704-eb276c8cffb0" />
+
+
