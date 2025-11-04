@@ -126,5 +126,8 @@ I also created a personal user account, gave it administrator privileges, and ad
 6. Selecting Shell
    Select default shell. And as per Professor Codi's instruction, you should install a different shell other than bash, so you can either select a different shell inside the Default Shell menu, or you can install it later in the terminal. 
 <img width="499" height="264" alt="Screenshot 2025-11-03 at 2 42 27 PM" src="https://github.com/user-attachments/assets/4aeddbe7-e966-4029-ae94-0dcb9095466f" />
+
+
 Select ZSH, if you want to have a different Shell other than Bash.
 <img width="663" height="377" alt="Screenshot 2025-11-03 at 2 42 44 PM" src="https://github.com/user-attachments/assets/c5781d60-ca02-4451-89cc-7e0b3488ce5c" />
+
