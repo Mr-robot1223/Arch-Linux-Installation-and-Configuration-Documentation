@@ -177,4 +177,104 @@ walaaaaaaaa........................................!
 You have successfully installed Arch Linux! (if you still didn't forget your username and password)
 <img width="945" height="250" alt="Screenshot 2025-11-03 at 2 59 02 PM" src="https://github.com/user-attachments/assets/084a3f1e-48f3-466f-a704-eb276c8cffb0" />
 
+**9. Post-Installation Configuration**
 
+After the first successful boot, I logged into the system using the new user account I created earlier.
+The first step was to verify the default shell environment. I ran:
+echo $SHELL
+
+The output confirmed that Zsh was successfully set as my default shell:
+/usr/bin/zsh
+
+This verified that my earlier configuration during installation had worked correctly.
+
+**10. Installing and Configuring SSH**
+
+Next, I installed and set up the SSH service to allow secure remote access to my Arch Linux system.
+
+To install SSH, I ran:
+sudo pacman -Sy openssh
+
+Once installed, I started the service and enabled it to launch automatically at boot:
+sudo systemctl start sshd
+sudo systemctl enable sshd
+
+Finally, I verified that the SSH service was running properly with:
+systemctl status sshd
+
+This confirmed that SSH was active and ready for remote connections.
+<br>
+<img width="1629" height="1045" alt="Screenshot 2025-11-03 at 3 11 17 PM" src="https://github.com/user-attachments/assets/a4c88ec5-8993-4396-a1ea-5f86cc12456c" />
+
+**11. Enabling Color Output in Zsh**
+
+To improve readability in the terminal, I enabled color support in Zsh by modifying the shell configuration file.
+
+I opened the configuration file with: 
+nano ~/.zshrc
+
+Then, I added the following lines to enable color output and customize the shell prompt:
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias diff='diff --color=auto'
+PROMPT='%F{green}%n@%m%f:%F{blue}%~%f%# '
+
+I made many syntax errors here, so I would definitely make sure to memorize these commands correctly. 
+Now, I saved the file control + o > OK > control + x to exit the Nano
+<img width="1613" height="1051" alt="Screenshot 2025-11-03 at 3 39 51 PM" src="https://github.com/user-attachments/assets/806377bb-f96e-416a-a800-8f3c1279dc83" />
+
+To confirm that terminal color coding was properly configured, I created a test setup inside the terminal.
+Since the home directory was initially empty, I created a new directory and a few sample files to verify visual output. 
+mkdir test_folder
+touch file1.txt file2.sh
+ls --color=auto
+
+<img width="1575" height="1023" alt="Screenshot 2025-11-03 at 4 06 09 PM" src="https://github.com/user-attachments/assets/cf8161fb-9fad-4862-bf3f-79c8bdcacce9" />
+
+**12. Installing the GNOME Desktop Environment**
+
+After completing the command-line configuration and verifying color support in the terminal, I decided to install a graphical user interface (GUI) to make Arch Linux easier to navigate and manage visually.
+
+First Attempt – Installing LXQt
+
+My first choice was the LXQt desktop environment because of its lightweight performance and low system resource usage. I installed it using the following commands:
+sudo pacman -S xorg sddm lxqt
+sudo systemctl enable sddm
+sudo systemctl start sddm
+
+These commands installed the X Window System (xorg), the Simple Desktop Display Manager (sddm), and the LXQt environment itself.
+However, after rebooting, the system froze on the login screen and did not allow me to log in or access the terminal — even common shortcuts like Ctrl + Alt + F2 didn’t respond.
+
+After several attempts to troubleshoot the issue, I decided to reinstall Arch Linux from scratch and repeat the entire setup process — from partitioning to configuration.
+<img width="1613" height="1095" alt="Screenshot 2025-11-03 at 4 35 17 PM" src="https://github.com/user-attachments/assets/80da8847-cb13-4c15-8ddc-e0cff37c03eb" />
+
+<bra> <bra>
+**Second Attempt – Installing GNOME**
+
+For the second installation, I switched to the GNOME desktop environment, which is known for its stability and strong integration with Arch Linux.
+The installation was completed with the following commands: 
+sudo pacman -S gnome
+sudo pacman -S gdm
+sudo systemctl enable --now gdm.service
+
+his installed GNOME and enabled GDM (GNOME Display Manager) to launch automatically at startup.
+
+After rebooting, the system successfully booted into the GNOME login screen, displaying my user account (“fayaz”) — confirming that the graphical environment was functioning properly and stable.
+<img width="1495" height="1082" alt="Screenshot 2025-11-03 at 5 46 40 PM" src="https://github.com/user-attachments/assets/dbc403f8-b996-42ea-8247-201ceb7f25aa" />
+
+**13. Additional Zsh Enhancements
+**
+To make the terminal even more efficient and easier to navigate, I added a few more helpful aliases to my Zsh configuration file. These commands made it faster to list and view directory contents while maintaining color support.
+
+I edited the configuration file using:
+nano ~/.zshrc
+
+Then, I added the following lines:
+alias la='ls -A --color=auto'
+alias l='ls -CF --color=auto'
+
+After saving the file, I reloaded the configuration to apply the changes:
+source ~/.zshrc
+
+Finally, I verified that the new aliases worked correctly — directory listings and color-coded output displayed as expected, improving both usability and readability of the terminal.
+<img width="1300" height="899" alt="Screenshot 2025-11-03 at 6 46 45 PM" src="https://github.com/user-attachments/assets/719b8ee4-e650-4a09-98a5-6d78205315e6" />
