@@ -278,3 +278,31 @@ source ~/.zshrc
 
 Finally, I verified that the new aliases worked correctly — directory listings and color-coded output displayed as expected, improving both usability and readability of the terminal.
 <img width="1300" height="899" alt="Screenshot 2025-11-03 at 6 46 45 PM" src="https://github.com/user-attachments/assets/719b8ee4-e650-4a09-98a5-6d78205315e6" />
+
+**14. Reflection and Troubleshooting Summary**
+
+Installing and configuring Arch Linux manually on a virtual machine was frustrating but a great experience. This project helped me understand the deeper workings of Linux — from disk partitioning and bootloader setup to shell customization and GUI configuration.
+
+In the process, I faced several issues that required troubleshooting:
+| **Issue**                                 | **Cause**                                               | **Solution**                                                               |
+| ----------------------------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------- |
+| Mounting errors during setup              | Misconfigured partitions or incorrect mount points      | Re-mounted each partition manually and verified with `lsblk`               |
+| Pacman not found / repository sync issues | System booted into live ISO instead of the installed OS | Mounted the drive again and used `arch-chroot /mnt` to fix the environment |
+| Fish shell installation failure           | Package database out of sync                            | Ran `pacman -Sy` before installing Fish                                    |
+| Login freeze after installing LXQt        | SDDM or LXQt conflict during boot                       | Reinstalled Arch Linux completely and switched to GNOME                    |
+| No color in Zsh shell                     | Missing alias and prompt settings                       | Edited `~/.zshrc` to add color-coded output and custom prompt              |
+| SSH inactive after reboot                 | Service not enabled                                     | Used `systemctl enable sshd` to make it auto-start                         |
+
+Each issue I ran into helped me get better at troubleshooting and understanding how Linux really works behind the scenes. I learned how to fix problems straight from the command line, without depending on a graphical interface.
+
+By the end of the project, I had:
+
+A fully working GNOME desktop environment
+
+SSH set up and running correctly
+
+A Zsh terminal with color and custom aliases
+
+A properly configured bootloader and user system
+
+This whole process not only taught me technical skills but also built up my patience and problem-solving mindset — both of which are important in system administration and cybersecurity.
